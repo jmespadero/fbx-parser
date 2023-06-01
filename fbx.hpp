@@ -30,6 +30,7 @@
 #include <list>
 #include <map>
 #include <vector>
+#include <array>
 #include <functional>
 
 namespace Fbx
@@ -196,6 +197,14 @@ namespace Fbx
         std::list<Record *> m_nestedList;
 
     };
+
+    // FileId record and CreationTime records are connected somehow
+    // Since we don't know how to compute them, we use this constants
+    const std::array<uint8_t, 16> FILE_ID_VALUE{
+        0x28, 0xB3, 0x2A, 0xEB, 0xB6, 0x24, 0xCC, 0xC2,
+        0xBF, 0xC8, 0xB0, 0x2A, 0xA9, 0x2B, 0xFC, 0xF1
+    };
+    const std::string CREATION_TIME_VALUE = "1970-01-01 10:00:00:000";
 
 }
 

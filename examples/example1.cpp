@@ -15,7 +15,7 @@ void printRecord(const Fbx::Record * record, size_t level = 0)
     }
 }
 
-int main()
+int main (int argc, char *argv[])
 {
     Fbx::Record file;
     auto versionCheck = [](std::string magic, uint32_t version)
@@ -30,9 +30,21 @@ int main()
         }
     };
 
-    file.read("../models/blender-default.fbx", versionCheck);
-    //printRecord(&file);
-    file.write("../bin/out-model.fbx");
+	// Set default input mesh filename
+	std::string filename("../models/blender-default.fbx");
+	if (argc > 1)
+		filename = std::string(argv[1]);
+
+	// Read a fbx file from disk
+	std::cout << "Reading file: " << filename << std::endl;
+    file.read(filename, versionCheck);
+    
+	// Print file schema to console
+    printRecord(&file);
+    
+	// Write file to disk
+	std::cout << "Writting file: out-model.fbx" << std::endl;
+    file.write("out-model.fbx");
 
     return 0;
 }

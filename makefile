@@ -17,7 +17,7 @@ obj/test.o: test/test.cpp
 # fbx-file
 fbx-file: folders obj/miniz.o obj/fbx.o
 
-obj/fbx.o: fbx.cpp
+obj/fbx.o: fbx.cpp fbx.hpp
 	$(CXX) -std=c++11 -c fbx.cpp -o obj/fbx.o
 
 obj/miniz.o: miniz.c
