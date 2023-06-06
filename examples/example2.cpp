@@ -80,16 +80,9 @@ int main (int argc, char *argv[])
 							   if (v.integer32 >= 0)
 								 std::cout << v.integer32 << " ";
 							   else
-								 std::cout << -v.integer32 << "\n";
+								 std::cout << -v.integer32-1 << "\n";
 						   }
 
-						   for (const Fbx::Property::Value &v : p->array())
-						   {
-							   if (v.integer32 >= 0)
-								 std::cout << v.integer32 << " ";
-							   else
-								 std::cout << -v.integer32 << "\n";
-						   }
 						break;
 					case 'l':
 						   for (const Fbx::Property::Value &v : p->array())
@@ -97,7 +90,7 @@ int main (int argc, char *argv[])
 							   if (v.integer64 >= 0)
 								 std::cout << v.integer64 << " ";
 							   else
-								 std::cout << -v.integer64 << "\n";
+								 std::cout << -v.integer64-1 << "\n";
 						   }
 						break;
 					default:
