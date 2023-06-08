@@ -44,7 +44,7 @@ int main (int argc, char *argv[])
     const auto objects = *file.find("Objects");
     for (const Fbx::Record *r : *objects)
     {
-        std::cout << "************** " << r->name() << " **************\n";
+        std::cout << "************** Record - " << r->name() << " **************\n";
 		if (r->name() == "Geometry")
 		{
 		   SimpleMesh m;
@@ -163,11 +163,11 @@ int main (int argc, char *argv[])
 	   
     }//for (const Fbx::Record *r : *objects)
 
-    std::cout << meshes.size() << " meshes\n";
+    std::cout << "Read " << meshes.size() << " fbx Geometry Records into SimpleMesh\n";
 	int nm=0;
 	for (const SimpleMesh &m : meshes)
 	{
-		std::string filename("mesh"+std::to_string(nm++)+".ply");
+		std::string filename("out-mesh"+std::to_string(nm++)+".ply");
 	    std::cout << " * " << filename << " : " << m.numVertex() << " vertex " << m.numTriangles() << " triangles\n";
 		m.writeFilePLY(filename, false);
 	}

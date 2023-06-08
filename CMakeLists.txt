@@ -22,4 +22,5 @@ include_directories(simplem)
 #Simple examples and tests
 add_executable(example1 examples/example1.cpp fbx.cpp fbx.hpp miniz.c)
 add_executable(example2 examples/example2.cpp fbx.cpp fbx.hpp miniz.c)
-add_executable(example3 examples/example3.cpp fbx.cpp fbx.hpp miniz.c)
+add_executable(fbx-simplemesh examples/fbx-simplemesh.cpp fbx.cpp fbx.hpp miniz.c)
+add_executable(write-fbx examples/write-fbx.cpp fbx.cpp fbx.hpp miniz.c)

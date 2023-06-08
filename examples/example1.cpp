@@ -7,7 +7,7 @@ void printRecord(const Fbx::Record * record, size_t level = 0)
 
     for (auto p : record->properties())
     {
-        std::cout << std::string((level + 1) * 3, ' ') << "Prop - " << p->code() << ": " << p->string() << std::endl;
+        std::cout << std::string((level + 1) * 3, ' ') << "Prop - " << p->code() << ": " << p->string().c_str() << std::endl;
     }
     for (auto r : *record)
     {
